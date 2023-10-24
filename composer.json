@@ -1,0 +1,21 @@
+{
+    "name": "pacofer71/crud211023",
+    "description": "Crud Clase",
+    "type": "project",
+    "license": "gnu/gpl",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Francisco Fernandez",
+            "email": "pacofer71@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "fakerphp/faker": "^1.23"
+    }
+}
