@@ -1,11 +1,12 @@
 <?php
 session_start();
+
 use App\Db\Conexion;
 use App\Db\Usuario;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-Usuario::datosPrueba(100);  
+Usuario::datosPrueba(100);
 $datos = Usuario::read();
 
 
@@ -29,8 +30,8 @@ $datos = Usuario::read();
     <h3 class="text-2xl text-center mt-4">Listado de Usuarios</h3>
     <div class="container p-8 mx-auto">
         <div class="flex flex-row-reverse mb-1">
-        <a href="create.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            <i class="fas fa-add mr-2"></i> Crear Usuario</a>
+            <a href="create.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                <i class="fas fa-add mr-2"></i> Crear Usuario</a>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -55,9 +56,9 @@ $datos = Usuario::read();
                 </thead>
                 <tbody>
                     <?php
-                    foreach($datos as $usuario){
-                        $clase=$usuario->perfil=='Admin' ? 'text-red-500' : 'text-green-500';
-                    echo <<<TXT
+                    foreach ($datos as $usuario) {
+                        $clase = $usuario->perfil == 'Admin' ? 'text-red-500' : 'text-green-500';
+                        echo <<<TXT
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {$usuario->apellidos}, {$usuario->nombre}
@@ -88,7 +89,7 @@ $datos = Usuario::read();
 
     </div>
     <?php
-    if(isset($_SESSION['mensaje'])){
+    if (isset($_SESSION['mensaje'])) {
         echo <<<TXT
         <script>
         Swal.fire({
