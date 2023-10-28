@@ -7,7 +7,7 @@ use App\Db\Usuario;
 require_once __DIR__ . "/../vendor/autoload.php";
 
 Usuario::datosPrueba(100);
-$datos = Usuario::read();
+//$datos = Usuario::read();
 
 
 ?>
@@ -56,7 +56,7 @@ $datos = Usuario::read();
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($datos as $usuario) {
+                    foreach (Usuario::read() as $usuario) {
                         $clase = $usuario->perfil == 'Admin' ? 'text-red-500' : 'text-green-500';
                         echo <<<TXT
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">

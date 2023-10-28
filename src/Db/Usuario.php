@@ -38,7 +38,7 @@ class Usuario extends Conexion
         }
         parent::$conexion = null;
     }
-    public static function read(): array
+    public static function read()
     {
         parent::setConexion();
         $q = "select * from usuarios order by id desc";
@@ -49,7 +49,10 @@ class Usuario extends Conexion
             die("Error al devolver valores: " . $ex->getMessage());
         }
         parent::$conexion = null;
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        //return $stmt->fetchAll(PDO::FETCH_OBJ);
+        while($fila=$stmt->fetch(PDO::FETCH_OBJ)){
+            yield($fila);
+        }
     }
     public function update($id)
     {
